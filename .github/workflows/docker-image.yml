@@ -15,6 +15,6 @@ jobs:
     - name: list file
       run: ls -ltr
     - name: read file
-      run: cat Docker
+      run: cat Dockerfile
     - name: install apache2
       run: apt install apache2 -y
