@@ -7,7 +7,7 @@ pipeline {
                 git branch: 'main', credentialsId: 'gitpw', url: 'https://github.com/chandrusp2/test.git'
             }
         }
-        stage('build iamge ans conatiner') {
+        stage('build iamge ans conatiner'.) {
             steps {
                 sh '''docker build -t redweb .
                    docker run -dt --name rw1 -p 9090:80 redweb'''
