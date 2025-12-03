@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: matrix
 
 on:
   push:
@@ -9,13 +9,17 @@ jobs:
   my_first_job:
     strategy:
       matrix:
-        os: [ubuntu-latest, ubuntu-20.04, windows-latest]
-        images: [hello-world, alphine]
-    runs-on: ${{ matrix.os}}
+        os: [ubuntu-latest, ubuntu-20.04]
+        images: [hello-world, alpine]
+
+    runs-on: ${{ matrix.os }}
 
     steps:
-    - uses: actions/checkout@v4
-    - name: docker info
-      run: docker info
-    - name: run image
-      run: docker run ${{ matrix.images}}
+      - uses: actions/checkout@v4
+
+      - name: docker info
+        run: docker info
+
+      - name: run image
+        run: docker run ${{ matrix.images }}
+
