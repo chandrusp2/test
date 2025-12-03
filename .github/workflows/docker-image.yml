@@ -16,5 +16,14 @@ jobs:
       run: ls -ltr
     - name: read file
       run: cat Dockerfile
-    - name: install apache2
-      run: sudo apt install apache2 -y
+    - name: creating file
+      run: echo " i am good at github actions" > github
+
+  second_job:
+    
+    runs-on: ubuntu-latest
+
+    steps:
+      needs: my_first_job
+
+      

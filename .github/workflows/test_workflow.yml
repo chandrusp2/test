@@ -1,0 +1,38 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+
+  my_first_job:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: list file
+      run: ls -ltr
+    - name: read file
+      run: cat Dockerfile
+    - name: creating file
+      run: echo " i am good at github actions" > github
+    - name: upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: github
+        path: github
+
+  second_job:
+    needs: my_first_job
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: download artifact
+      uses: download/upload-artifact@v4
+      with:
+        name: github
+    - name: read file
+      run: cat github
+
