@@ -3,16 +3,18 @@ name: Docker Image CI
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
 
-  build:
+  my_first_job:
 
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: echo "docker image is buiding"
+    - name: list file
+      run: ls -ltr
+    - name: read file
+      run: cat Docker
+    - name: install apache2
+      run: apt install apache2 -y
