@@ -17,4 +17,4 @@ jobs:
     - name: read file
       run: cat Dockerfile
     - name: install apache2
-      run: apt install apache2 -y
+      run: sudo apt install apache2 -y
