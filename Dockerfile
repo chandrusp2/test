@@ -8,7 +8,7 @@ RUN dnf install -y httpd && \
 # Copy local HTML file to Apache web root
 COPY index.html /var/www/html/
 
-# Expose port 80 for web traffic
+# Expose port 80 for web traffics
 EXPOSE 80
 
 # Start Apache in the foreground
