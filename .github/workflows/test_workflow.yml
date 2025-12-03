@@ -27,6 +27,9 @@ jobs:
           name: github
           path: github
 
+        - name: wait
+          run: sleep 300
+
   second_job:
     needs: my_first_job
     runs-on: ubuntu-latest
